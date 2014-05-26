@@ -1,7 +1,7 @@
 wordpressAttachmentIdFromImg
 ============================
 
-Single function to get wordpress attachment id from an img src
+Single function to get wordpress attachment id from an img src, regardless of whether the img src is a resized thumbnail or the original image.
 
 ## Usage
 

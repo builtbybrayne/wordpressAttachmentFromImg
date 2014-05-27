@@ -27,7 +27,15 @@ Clone or download from [GitHub](https://github.com/perchten/wordpressAttachmentF
 
 ### Code
 
+Basic usage to get the ID:
+
 	get_attachment_id_from_img_src($image_src)
+	
+If you want a specific thumbnail img src rather than just the ID, you can also use:
+
+	get_attachment_id_from_img_src($image_src,$thumb)
+	
+This will only work if the thumbnail size has been previously defined. It will NOT return the `<img>` tag, but just the src url. It will also not return the image metadata such as size. If you need that, then use the inbuilt Wordpress function [`wp_get_attachment_image_src()`](http://codex.wordpress.org/Function_Reference/wp_get_attachment_image_src) instead.
 	
 ## Why Not A Wordpress Plugin?
 

@@ -3,7 +3,6 @@
     "type": "library",
     "keywords": ["wordpress","attachment", "image", "util", "functional"],
     "description": "Single function to get wordpress attachment id from an img src",
-    "version": "1.0.0",
     "homepage": "https://github.com/perchten/wordpressAttachmentFromImg",
     "require": {
         "php": ">=5.3.0"

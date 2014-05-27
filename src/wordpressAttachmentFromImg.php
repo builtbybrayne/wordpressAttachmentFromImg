@@ -16,10 +16,13 @@
  * @return mixed the attachment ID for the img src or the thumbnail url if $thumb is set or null if the attachment cannot be found
  */
 function get_attachment_id_from_img_src($image_src, $thumbnail=null) {
-    $image_src = preg_replace('/-[\dx]+(?=\.(jpg|jpeg|png|gif|pdf)$)/i', '', $image_src);
     global $wpdb;
     $query = "SELECT ID FROM {$wpdb->posts} WHERE guid='$image_src'";
-    $attachment = $wpdb->get_var($query);
+    if ( !( $attachment = $wpdb->get_var($query) ) ) {
+        $image_src = preg_replace('/-[\dx]+(?=\.(jpg|jpeg|png|gif|pdf)$)/i', '', $image_src);
+        $query = "SELECT ID FROM {$wpdb->posts} WHERE guid='$image_src'";
+        $attachment = $wpdb->get_var($query);
+    }
     if ( $thumbnail && $src = wp_get_attachment_image_src($attachment,$thumbnail)) {
         $attachment = $src[0];
     }
